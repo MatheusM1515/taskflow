@@ -20,3 +20,6 @@ RUN a2enmod rewrite
 COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 
 EXPOSE 80
+
+# 🚀 Executa as migrations e inicia o Apache em produção
+CMD php artisan migrate --force && apache2-foreground
