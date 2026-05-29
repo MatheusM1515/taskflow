@@ -21,5 +21,5 @@ COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 
 EXPOSE 80
 
-# 🚀 Executa as migrations e inicia o Apache em produção
-CMD php artisan migrate --force && apache2-foreground
+# 🚀 Zera o banco, recria TODAS as tabelas de forma limpa e inicia o Apache
+CMD php artisan migrate:fresh --force && apache2-foreground
